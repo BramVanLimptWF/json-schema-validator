@@ -1,3 +1,9 @@
+if (WIN32)
+    set(PIPE_IN_TEST_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/../test-pipe-in.bat)
+else ()
+    set(PIPE_IN_TEST_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/../test-pipe-in.sh)
+endif ()
+
 set(JSON_SCHEMA_TEST_PREFIX "JSON-Suite" CACHE STRING "prefix for JSON-tests added to ctest")
 
 set(DRAFT "draft7")

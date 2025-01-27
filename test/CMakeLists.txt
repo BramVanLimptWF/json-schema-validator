@@ -1,4 +1,8 @@
-set(PIPE_IN_TEST_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/test-pipe-in.sh)
+if (WIN32)
+    set(PIPE_IN_TEST_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/test-pipe-in.bat)
+else ()
+    set(PIPE_IN_TEST_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/test-pipe-in.sh)
+endif ()
 
 # built-in tests
 function(add_test_simple_schema name schema instance)

@@ -17,7 +17,12 @@ target_link_libraries(json-schema-validate nlohmann_json_schema_validator)
 enable_testing()
 
 # Add built-in tests function needed for issues
-set(PIPE_IN_TEST_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/../../test-pipe-in.sh)
+if (WIN32)
+    set(PIPE_IN_TEST_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/../../test-pipe-in.bat)
+else ()
+    set(PIPE_IN_TEST_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/../../test-pipe-in.sh)
+endif ()
+
 function(add_test_simple_schema name schema instance)
     add_test(
         NAME ${name}
